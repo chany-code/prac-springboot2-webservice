@@ -35,6 +35,7 @@ dependencies {
     compile('com.h2database:h2')
     //인메모리 관계형 데이터베이스. 프로젝트 의존성만으로 관리가능
     //메모리에서 실행 -> 앱 재시작마다 초기화(테스트용)
+    compile('org.springframework.boot:spring-boot-starter-mustache')//머스테치 스타터 의존성 등록
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
 
