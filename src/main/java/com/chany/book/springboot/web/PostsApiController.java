@@ -12,7 +12,7 @@ public class PostsApiController {
 
     private final PostsService postsService;
 
-    @PostMapping //("/api/vi/posts") PutMapping일땐 ()붙이고 PostMapping일땐 때고 *Post_등록된다()
+    @PostMapping("/api/v1/posts") //*Post_등록된다() **@PostMapping뒤에 ()인자값 누락으로 405error남*
     public Long save(@RequestBody PostsSaveRequestDto requestDto){
         return postsService.save(requestDto);
     }
