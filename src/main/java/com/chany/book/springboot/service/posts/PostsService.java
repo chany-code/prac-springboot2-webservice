@@ -41,4 +41,10 @@ public class PostsService {
     public List<PostsListResponseDto> findAllDesc(){//하단에 람다식 사용, 실제코드:.map(posts->new PostsListResponseDto(posts))
         return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
     }
+
+    @Transactional
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
+        postsRepository.delete(posts);//JpaRepository에 이미 delete 메소드를 지원/ 엔티티를 파라미터로 삭제하거나 deleteById면 id로 삭제가능
+    }
 }
